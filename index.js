@@ -100,7 +100,7 @@ const chooseOptions = () => {
       option.classList.add("selected");
     });
   });
-  console.log(correctAnswer);
+  // console.log(correctAnswer);
 };
 
 const seeAnswer = () => {
@@ -113,10 +113,10 @@ const seeAnswer = () => {
       correctScore++;
       _result.innerHTML = `Correct Answer!`;
     } else {
-      _result.innerHTML = `Incorrect! The correct answer was ${correctAnswer}`;
+      _result.innerHTML = `Incorrect! The correct answer was ${correctAnswer}!`;
     }
   } else {
-    _result.innerHTML = `Choose an option. It's not in the air1`;
+    _result.innerHTML = `Choose an option. It's not in the air!`;
     _enter.disabled = false;
   }
   checkingCount();
@@ -126,7 +126,7 @@ const checkingCount = () => {
   askedCount++;
   settingCount();
   if (askedCount == totalQuestion) {
-    _result.innerHTML += `Your score is ${correctScore}/${totalQuestion}.`;
+    _result.innerHTML += ` Your score is ${correctScore}/${totalQuestion}.`;
     _tryAgainBtn.style.display = "block";
     _enter.style.display = "none";
   } else {
