@@ -23,7 +23,7 @@ const _result = document.querySelector("#result");
 let correctAnswer = "";
 let correctScore = 0;
 let askedCount = 0;
-let totalQuestion = 20;
+let totalQuestion = 15;
 
 const allEventListeners = () => {
   _enter.addEventListener("click", seeAnswer);
@@ -39,15 +39,14 @@ document.addEventListener("DOMContentLoaded", () => {
 async function getQuestions() {
   const result = await fetch(URL);
   const json = await result.json();
-  // console.log(json.results);
-  // const qa = json.results.map(
-  //   ({ question, correct_answer, incorrect_answers }) => ({
-  //     question,
-  //     correct_answer,
-  //     incorrect_answers,
-  //   })
-  // );
-  // console.log(qa)
+  json.results[0].question.replace(
+    /(&#(\d+);)/g,
+    (match, capture, charCode) => {
+      String.fromCharCode(charCode);
+    }
+  );
+  _result.innerHTML = "";  
+
   showQuestions(json.results[0]);
   // return qa;
   // Create a conditional that will increment i when you select an answer
@@ -55,7 +54,7 @@ async function getQuestions() {
 }
 
 const showQuestions = (json) => {
-  let correctAnswer = json.correct_answer;
+  correctAnswer = json.correct_answer;
   let incorrectAnswer = json.incorrect_answers;
   // let question = json.question;
   let myOptionsList = incorrectAnswer;
@@ -104,18 +103,36 @@ const chooseOptions = () => {
 };
 
 const seeAnswer = () => {
-  _enter.disabled = true;
+  _enter.disabled = false;
   if (_options.querySelector(".selected")) {
-    const li = document.querySelector("li");
+    const li = document.querySelector(".selected");
     let selectedChoice = li.textContent;
     console.log(selectedChoice);
-    if (selectedChoice == correctAnswer) {
+    if (selectedChoice === correctAnswer) {
       correctScore++;
       _result.innerHTML = `Correct Answer!`;
     } else {
       _result.innerHTML = `Incorrect! The correct answer was ${correctAnswer}`;
     }
   }
+  checkingCount();
+};
+
+const checkingCount = () => {
+  askedCount++;
+  settingCount();
+  if (askedCount == totalQuestion) {
+    alert("You're finished!");
+  } else {
+    setTimeout(() => {
+      getQuestions();
+    }, 200);
+  }
+};
+
+const settingCount = () => {
+  _totalQuestion.textContent = totalQuestion;
+  _correctScore.textContent = correctScore;
 };
 // getQuestions();
 // Create An Array to hold all the answers
@@ -227,3 +244,13 @@ const seeAnswer = () => {
 // //     displayMessage("Incorrect!");
 // //   }
 // // }
+
+ // console.log(json.results);
+  // const qa = json.results.map(
+  //   ({ question, correct_answer, incorrect_answers }) => ({
+  //     question,
+  //     correct_answer,
+  //     incorrect_answers,
+  //   })
+  // );
+  // console.log(qa)
