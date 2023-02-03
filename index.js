@@ -27,6 +27,7 @@ let totalQuestion = 15;
 
 const allEventListeners = () => {
   _enter.addEventListener("click", seeAnswer);
+  _tryAgainBtn.addEventListener("click", quizAgain);
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -45,7 +46,7 @@ async function getQuestions() {
       String.fromCharCode(charCode);
     }
   );
-  _result.innerHTML = "";  
+  _result.innerHTML = "";
 
   showQuestions(json.results[0]);
   // return qa;
@@ -114,6 +115,9 @@ const seeAnswer = () => {
     } else {
       _result.innerHTML = `Incorrect! The correct answer was ${correctAnswer}`;
     }
+  } else {
+    _result.innerHTML = `Choose an option. It's not in the air1`;
+    _enter.disabled = false;
   }
   checkingCount();
 };
@@ -122,17 +126,29 @@ const checkingCount = () => {
   askedCount++;
   settingCount();
   if (askedCount == totalQuestion) {
-    alert("You're finished!");
+    _result.innerHTML += `Your score is ${correctScore}/${totalQuestion}.`;
+    _tryAgainBtn.style.display = "block";
+    _enter.style.display = "none";
   } else {
     setTimeout(() => {
       getQuestions();
-    }, 200);
+    }, 300);
   }
 };
 
 const settingCount = () => {
   _totalQuestion.textContent = totalQuestion;
   _correctScore.textContent = correctScore;
+};
+
+const quizAgain = () => {
+  correctScore = 0;
+  askedCount = 0;
+  _tryAgainBtn.style.display = "none";
+  _enter.style.display = "block";
+  _enter.disabled = false;
+  settingCount();
+  getQuestions();
 };
 // getQuestions();
 // Create An Array to hold all the answers
@@ -245,12 +261,12 @@ const settingCount = () => {
 // //   }
 // // }
 
- // console.log(json.results);
-  // const qa = json.results.map(
-  //   ({ question, correct_answer, incorrect_answers }) => ({
-  //     question,
-  //     correct_answer,
-  //     incorrect_answers,
-  //   })
-  // );
-  // console.log(qa)
+// console.log(json.results);
+// const qa = json.results.map(
+//   ({ question, correct_answer, incorrect_answers }) => ({
+//     question,
+//     correct_answer,
+//     incorrect_answers,
+//   })
+// );
+// console.log(qa)
