@@ -18,7 +18,7 @@ incorrect_answers: [
 
 **API Code**:
 
-const URL = "https://opentdb.com/api.php?amount=25&category=29";
+const URL = "https://opentdb.com/api.php?amount=1&category=29&type=multiple";
 
 async function getQuestions() {
 const res = await fetch(URL);
@@ -29,9 +29,9 @@ return json[0];
 
 getQuestions();
 
-- **Wireframes**: 
+- **Wireframes**:
 
-- **MVP**: 
+- **MVP**:
 
 * Being able to press the next button
 * Press an answer to the question
@@ -45,7 +45,7 @@ getQuestions();
 * Make the containers look good
 * Try to expand on more of the trivia
 
-- **Goals**: 
+- **Goals**:
 
 * Create all the necessary html variables
 * Develop the logic for the Javascript functionality, then debug to get
@@ -54,7 +54,8 @@ getQuestions();
 * Refine the code to make it readable as possible.
 * Work on debugging the code in terms of any mistakes and parts of the website that don't work.
 
-- **Priority Matrix**: 
+- **Priority Matrix**:
 
 - **Timeframes**:
+
 * Coding: From Tuesday - Friday. I will be working on some of it during the weekend.

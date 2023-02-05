@@ -40,12 +40,12 @@ document.addEventListener("DOMContentLoaded", () => {
 async function getQuestions() {
   const result = await fetch(URL);
   const json = await result.json();
-  json.results[0].question.replace(
-    /(&#(\d+);)/g,
-    (match, capture, charCode) => {
-      String.fromCharCode(charCode);
-    }
-  );
+  // json.results[0].question.replace(
+  //   /(&#(\d+);)/g,
+  //   (match, capture, charCode) => {
+  //     String.fromCharCode(charCode);
+  //   }
+  // );
   _result.innerHTML = "";
 
   showQuestions(json.results[0]);
@@ -69,11 +69,13 @@ const showQuestions = (json) => {
   // console.log(myOptionsList);
   // console.log(correctAnswer);
   // console.log(_question);
+  decode(correctAnswer);
+  decode(incorrectAnswer);
+  _question.innerText = decode(json.question);
 
-  _question.innerText = `${json.question}`;
-  _question.innerText.replace(/(&#(\d+);)/g, (match, capture, charCode) => {
-    String.fromCharCode(charCode);
-  });
+  // _question.innerText.replace(/(&#(\d+);)/g, (match, capture, charCode) => {
+  //   String.fromCharCode(charCode);
+  // });
 
   const options = document.querySelector(".quiz-options");
 
@@ -88,6 +90,12 @@ const showQuestions = (json) => {
   chooseOptions();
 };
 
+const decode = (str) => {
+  let txt = document.createElement("textarea");
+  txt.innerHTML = str;
+  return txt.value;
+};
+
 // Select Options
 const chooseOptions = () => {
   _options.querySelectorAll("li").forEach((option) => {
@@ -99,6 +107,7 @@ const chooseOptions = () => {
       });
       option.classList.add("selected");
     });
+    option.classList.remove("selected");
   });
   // console.log(correctAnswer);
 };
@@ -115,11 +124,11 @@ const seeAnswer = () => {
     } else {
       _result.innerHTML = `Incorrect! The correct answer was ${correctAnswer}!`;
     }
+    checkingCount();
   } else {
     _result.innerHTML = `Choose an option. It's not in the air!`;
     _enter.disabled = false;
   }
-  checkingCount();
 };
 
 const checkingCount = () => {
@@ -132,7 +141,7 @@ const checkingCount = () => {
   } else {
     setTimeout(() => {
       getQuestions();
-    }, 300);
+    }, 3000);
   }
 };
 
