@@ -44,7 +44,6 @@ getQuestions();
 * Try to add images onto each question
 * Try to make it more stylized and exquisite
 * Make the containers look good
-* Try to expand on more of the trivia
 
 - **Goals**:
 
