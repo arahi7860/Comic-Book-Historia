@@ -7,14 +7,16 @@
 
 {
 category: "Entertainment: Comics",
-type: "boolean",
-difficulty: "medium",
-question: "In the webcomic Homestuck, the first character introduced is Dave Strider.",
-correct_answer: "False",
+type: "multiple",
+difficulty: "hard",
+question: "In the &quot;Archie&quot; comics, who was Jughead&#039;s first girlfriend?",
+correct_answer: "Joani",
 incorrect_answers: [
-"True"
+"Ethel",
+"Debbi",
+"Margret"
 ]
-},
+}
 
 **API Code**:
 
