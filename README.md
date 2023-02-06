@@ -18,13 +18,13 @@ incorrect_answers: [
 
 **API Code**:
 
-const URL = "https://opentdb.com/api.php?amount=1&category=29&type=multiple";
-
 async function getQuestions() {
-const res = await fetch(URL);
-const json = await res.json();
-console.log(json);
-return json[0];
+  const result = await fetch(URL);
+  const json = await result.json();
+  
+  _result.innerHTML = "";
+
+  showQuestions(json.results[0]);
 }
 
 getQuestions();
