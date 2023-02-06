@@ -113,10 +113,6 @@ p {
 
 #check-answer {
   display: flex;
-  position: relative;
-  margin: 0;
-  position: absolute;
-  top: 50%;
 }
 
 #result {
