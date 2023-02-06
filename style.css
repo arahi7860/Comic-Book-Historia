@@ -10,12 +10,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 1200px;
+  width: 1000px;
   margin-right: auto;
   margin-left: auto;
-  margin-top: 200px;
+  margin-top: 150px;
   font-family: Times, Times New Roman, serif;
-  background-color: rgb(231, 223, 204);
+  background-color: rgb(188, 228, 196);
 }
 
 h1 {
@@ -26,6 +26,11 @@ h1 {
 .quiz-title {
   border-top-left-radius: 2rem;
   border-bottom-left-radius: 2rem;
+  font-weight: 800;
+  border: white;
+  font-size: 60px;
+  font-style: italic;
+  color: white;
 }
 
 .quiz-score {
@@ -61,6 +66,10 @@ h1 {
 
 #try-again {
   display: none;
+}
+
+span {
+  text-align: center;
 }
 
 .selected {
@@ -104,7 +113,10 @@ p {
 
 #check-answer {
   display: flex;
-  text-align: center;
+  position: relative;
+  margin: 0;
+  position: absolute;
+  top: 50%;
 }
 
 #result {
