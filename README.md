@@ -18,7 +18,7 @@ incorrect_answers: [
 
 **API Code**:
 
-***async function getQuestions() {
+async function getQuestions() {
   const result = await fetch(URL);
   const json = await result.json();
   
@@ -27,7 +27,7 @@ incorrect_answers: [
   showQuestions(json.results[0]);
 }
 
-getQuestions();***
+getQuestions();
 
 - **Wireframes**: ![WEBSITE-ROUGH-SKETCH](https://user-images.githubusercontent.com/54910341/216992522-78c905f5-f0da-4e68-85cb-258aa5577837.png)
 
