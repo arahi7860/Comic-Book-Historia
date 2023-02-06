@@ -37,7 +37,7 @@ getQuestions();
 * Being able to press the next button
 * Press an answer to the question
 * Having the options show on page
-* Give a score based on your performance and determine what kind of fan are you
+* Give a score based on your performance
 
 - **Post-MVP**:
 
