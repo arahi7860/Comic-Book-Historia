@@ -1,7 +1,7 @@
 ### How Much of a Comic Fan Are You?
 
 - **App Title**: Comic Book Historia
-- **App Description**: Test your knowledge in 20 questions of multiple-choice and true or false questions on Comic Book Trivia.
+- **App Description**: Test your knowledge in 15 questions of multiple-choice on Comic Book Trivia.
 - **API**: The API I am using is https://opentdb.com/api_config.php
 - **API Snippet**:
 
