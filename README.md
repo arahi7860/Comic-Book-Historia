@@ -29,7 +29,8 @@ return json[0];
 
 getQuestions();
 
-- **Wireframes**:
+- **Wireframes**: ![WEBSITE-ROUGH-SKETCH](https://user-images.githubusercontent.com/54910341/216992522-78c905f5-f0da-4e68-85cb-258aa5577837.png)
+
 
 - **MVP**:
 
@@ -54,7 +55,7 @@ getQuestions();
 * Refine the code to make it readable as possible.
 * Work on debugging the code in terms of any mistakes and parts of the website that don't work.
 
-- **Priority Matrix**:
+- **Priority Matrix**: ![PRIORITY-MATRIX](https://user-images.githubusercontent.com/54910341/216992549-4e75ca79-3c63-4534-9aeb-2f069c006998.png)
 
 - **Timeframes**:
 
